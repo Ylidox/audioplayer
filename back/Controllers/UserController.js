@@ -66,10 +66,10 @@ class UserController{
 
             let oldLogin = await db.query('select * from customer where id = $1', [id]);
 
-            await fs.rename(`../audio/${oldLogin.rows[0].login}`, `../audio/${login}`, (err) => {
-                if (err) console.error(err);
-                else console.log('Папка успешно переименована');
-            });
+            // await fs.rename(`../audio/${oldLogin.rows[0].login}`, `../audio/${login}`, (err) => {
+            //     if (err) console.error(err);
+            //     else console.log('Папка успешно переименована');
+            // });
             await db.query(`update customer set login = $1 where id = $2`, [login, id]);
         }
         const token = generateToken(id, login);
