@@ -1,11 +1,27 @@
+import {Routes, Route} from 'react-router-dom';
+import Layout from './components/Layout';
 import './App.css';
-import AddAudio from './components/AddAudio';
+import LoginPage from './pages/LoginPage';
+import { AuthProvider } from './contexts/AuthContext';
+import Registration from './pages/Registration';
+import HomePage from './pages/HomePage';
+import AddAudio from './pages/AddAudio';
 
 function App() {
   return (
-    <div className="App">
-      <AddAudio/>
-    </div>
+    <AuthProvider>
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<HomePage/>}/>
+          <Route path='liked' element={<div>Избранное</div>}/>
+          <Route path='popular' element={<div>Популярные</div>}/>
+          <Route path='lists' element={<div>Плейлисты</div>}/>
+          <Route path='add_audio' element={<AddAudio/>}/>
+        </Route>
+        <Route path='/login'  element={<LoginPage/>}/>
+        <Route path='/registration' element={<Registration/>}/>
+      </Routes>
+    </AuthProvider>
   );
 }
 

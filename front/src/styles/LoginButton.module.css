@@ -1,0 +1,12 @@
+.container{
+    position: absolute;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 10px;
+    top: 0px;
+    font-size: 20px;
+    color: rgba(200, 200, 200, 0.9);
+    cursor: pointer;
+}
