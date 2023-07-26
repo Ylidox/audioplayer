@@ -12,13 +12,17 @@ create table playlist(
 
 create table musik(
     id serial primary key,
-    customer_id  int references public.customer(id),
-    playlist_id  int references public.playlist(id),
+    customer_id int references public.customer(id),
+    playlist_id int references public.playlist(id),
     path text not null,
     name text not null,
     author text,
-    liked boolean NOT NULL DEFAULT FALSE
+    liked boolean NOT NULL DEFAULT FALSE,
+    count_listenings int DEFAULT 0
 )
 
 ALTER TABLE musik
 ADD liked boolean NOT NULL DEFAULT FALSE;
+
+ALTER TABLE musik
+ADD count_listenings int DEFAULT 0;

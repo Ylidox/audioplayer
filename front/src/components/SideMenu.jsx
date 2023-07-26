@@ -73,7 +73,7 @@ let li = {
 	}
 }
 
-function MenuRight() {
+function SideMenu() {
 	let [showMenu, setShowMenu] = useState(false);
 	let links = [
     {
@@ -154,4 +154,4 @@ function MenuRight() {
 	);
 }
 
-export default MenuRight;
+export default SideMenu;

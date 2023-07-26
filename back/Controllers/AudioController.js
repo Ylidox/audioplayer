@@ -20,7 +20,7 @@ class AudioController{
 
         await db.query(
             `insert into musik (customer_id, path, name, author)
-            values($1, $2, $3, $4)`, [id, filePath, name, author]);
+            values($1, $2, $3, $4)`, [id, file.name, name, author]);
 
         res.status(200).json({message:"Получили сообщение"})
     }
