@@ -9,7 +9,7 @@ function MainMenu() {
         setSize(window.innerWidth)
     }
     useEffect(() => {
-        if(size > 760) setKindMenu(false);
+        if(size > 630) setKindMenu(false);
         else setKindMenu(true);
     }, [size]);
 

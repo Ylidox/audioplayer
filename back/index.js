@@ -14,6 +14,7 @@ app.use(fileUpload({
 }));
 app.use(express.json());
 
+app.use('/file', express.static('../file'));
 app.use('/user', userRouter);
 app.use('/audio', audioRouter);
 app.use('/list', playlistRouter);

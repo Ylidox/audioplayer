@@ -1,0 +1,150 @@
+.container{
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data{
+    padding-left: 10px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.data>div{
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.author{
+    color:lightgray;
+}
+
+.time{
+    color: white;
+    width: 50px;
+    font-size: 12px;
+    text-align: center;
+    height: 100%;
+}
+
+.like_container{
+    width: 50px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin: 0px 3px;
+}
+
+.like_off{
+    width: 40px;
+    height: 40px;
+    color: var(--like-off);
+}
+.like_on{
+    width: 40px;
+    height: 40px;
+    color: var(--like-on);
+}
+
+.progres_area{
+    width: calc(65%);
+    display: flex;
+    align-items: center;
+}
+
+.progres{
+    appearance: none;
+	-webkit-appearance: none;
+	height: 5px;
+    width: 100%;
+    background: rgb(177, 176, 176);
+    border-radius: 10px;
+	/* стили вашего ползунка */
+}
+.progres::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	box-sizing: content-box;
+	/* стили вашего бегунка */
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+}
+.progres::-moz-range-thumb {
+	/* снова стили вашего бегунка */
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+
+}
+.progres::-ms-thumb { /* должен следовать после -webkit- */
+	/* снова стили вашего бегунка */
+	/* могут потребоваться разные отступы */
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    border-radius: 10px;
+}
+.progres::-webkit-slider-runnable-track {
+	/* стили вашей дорожки*/
+    background: var(--progres-track);
+	height: 100%;
+    border-radius: 10px;
+}
+.progres::-moz-range-track {
+	/* снова стили вашей дорожки */
+    background: var(--progres-track);
+	height: 100%;
+    border-radius: 10px;
+}
+.progres::-ms-track { /* должен следовать после -webkit- */
+	border-color: transparent;
+	color: transparent;
+	/* снова стили вашей дорожки */
+
+    background: var(--progres-track);
+	height: 100%;
+    border-radius: 10px;
+}
+
+.progres::-ms-fill-lower {
+	background-color: var(--progres-fill);		
+	height: 100%;
+    border-radius: 10px;
+}
+.progres::-moz-range-progress {
+	background-color: var(--progres-fill);	
+	height: 100%;
+    border-radius: 10px;
+}
+
+.background{
+    height: 60px;
+    border-radius: 10px;
+    background: var(--gradient);
+    position: absolute;
+    z-index: -1;
+
+    width: 50%;
+    max-width: 700px;
+    min-width: 600px;
+}
+
+@media screen and (max-width:600px) {
+    .background{
+        min-width: 95vw;
+        width: 95%;
+    }
+}

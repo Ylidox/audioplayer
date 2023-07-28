@@ -2,10 +2,13 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/HomePage.module.css';
 import ButtonAddAudio from '../components/ButtonAddAudio';
 import { useAuth } from '../hooks/useAuth';
+import ListAudio from '../components/ListAudio';
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
     let [musiks, setMusiks] = useState([]);
-    let {user} = useAuth();
+    let {user, singOut} = useAuth();
+    let navigate = useNavigate();
 
     const getAllMusik = async () => {
         let res = await fetch('/audio/get_all',
@@ -18,8 +21,9 @@ function HomePage() {
             }
         );
         let ans = await res.json();
-        console.log(ans)
-        setMusiks(ans);
+        if(res.status == 404) singOut(navigate('/login'));
+        // console.log(ans)
+        if(ans.length !== musiks.length) setMusiks(ans);
     }
 
     useEffect(() => {
@@ -30,6 +34,7 @@ function HomePage() {
         <div className={styles.container}>
             <div className={styles.content}>
                 <ButtonAddAudio/>
+                <ListAudio songs={musiks}/>
             </div>
         </div>
     );

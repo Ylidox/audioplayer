@@ -24,6 +24,12 @@ class AudioController{
 
         res.status(200).json({message:"Получили сообщение"})
     }
+    async likeMusik(req, res){
+        let {id} = req.user;
+        let {musik_id, like} = req.body;
+        await db.query('update musik set liked = $1 where id = $2 and customer_id = $3', [like, musik_id, id]);
+        res.status(200).json({message:`Музыка ${musik_id}, liked: ${like}`});
+    }
     async getAllMusiks(req, res){
         let {id, login} = req.user;
         let musiks = await db.query('select * from musik where customer_id = $1', [id]);

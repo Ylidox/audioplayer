@@ -32,6 +32,7 @@ export const AuthProvider = ({children}) => {
     const signOut = async (cb) => {
         setUser({login: '', token: ''});
         localStorage.clear();
+        cb();
     }
 
     return (

@@ -14,7 +14,7 @@ function App() {
         <Route path='/' element={<Layout/>}>
           <Route index element={<HomePage/>}/>
           <Route path='liked' element={<div>Избранное</div>}/>
-          <Route path='popular' element={<div>Популярные</div>}/>
+          <Route path='listen' element={<div>Слушать</div>}/>
           <Route path='lists' element={<div>Плейлисты</div>}/>
           <Route path='add_audio' element={<AddAudio/>}/>
         </Route>

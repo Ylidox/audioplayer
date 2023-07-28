@@ -25,12 +25,12 @@ function Menu() {
           href: '/'
         },
         {
-          title: 'Избранное',
-          href: '/liked'
+          title: 'Слушать',
+          href: '/listen'
         },
         {
-          title: 'Популярные',
-          href: '/popular'
+          title: 'Избранное',
+          href: '/liked'
         },
         {
           title: 'Плейлисты',

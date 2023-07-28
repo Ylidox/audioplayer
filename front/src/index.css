@@ -5,6 +5,11 @@
   --gradient: linear-gradient(170deg, #01d555, #1d7238);
   --dark: #1d7238;
   --light: #01d555;
+  --progres-fill: white;
+  --progres-track: rgb(82, 82, 82);
+  /* --like-on: rgb(253, 3, 120); */
+  --like-on: white;
+  --like-off: rgb(78, 77, 77);
 }
 
 body {

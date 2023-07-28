@@ -77,9 +77,8 @@ function AddAudio() {
             body: formData
         });
         let ans = await res.json();
-        console.log(ans);
         navigate('/');
-
+        console.log(ans);
 	}
 
     let dragStart = (e) => {
