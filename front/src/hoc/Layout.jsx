@@ -1,8 +1,8 @@
 import React from 'react';
-import MainMenu from './MainMenu';
+import MainMenu from '../components/MainMenu';
 import { Outlet } from 'react-router-dom';
-import RequireAuth from '../hoc/RequireAuth';
-import LoginButton from './LoginButton';
+import RequireAuth from './RequireAuth';
+import LoginButton from '../components/LoginButton';
 function Layout() {
     return (
         <RequireAuth>

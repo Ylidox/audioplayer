@@ -2,15 +2,21 @@ import { useEffect, useState } from 'react';
 import styles from '../styles/HomePage.module.css';
 import ButtonAddAudio from '../components/ButtonAddAudio';
 import { useAuth } from '../hooks/useAuth';
+import { useAudio } from '../hooks/useAudio';
 import ListAudio from '../components/ListAudio';
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-    let [musiks, setMusiks] = useState([]);
     let {user, singOut} = useAuth();
+    let {musiks, setMusiks} = useAudio();
+    
     let navigate = useNavigate();
 
-    const getAllMusik = async () => {
+    const getAllMusik = () => {
+        if(!musiks.length) fetchMusik();
+    }
+
+    const fetchMusik = async () => {
         let res = await fetch('/audio/get_all',
             {
                 method: 'POST',

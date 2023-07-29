@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 import ReactAudioPlayer from 'react-audio-player';
 import { AiFillHeart } from 'react-icons/ai';
 
-function Audio({song, play, setPlay}) {
+function Audio({song, play, setPlay, next}) {
     let {user} = useAuth();
     let audio = useRef(null);
 
@@ -156,6 +156,7 @@ function Audio({song, play, setPlay}) {
                     listenInterval={10}
                     onListen={updateTime}
                     onLoadedMetadata={updateTime}
+                    onEnded={next}
                 />
             </div>
         </motion.div>
