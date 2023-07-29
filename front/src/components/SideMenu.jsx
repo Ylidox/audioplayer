@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from '../styles/SideMenu.module.css'
 import { NavLink } from 'react-router-dom';
 import {motion, AnimatePresence} from 'framer-motion';
+import { useAudio } from '../hooks/useAudio';
 
 let container = {
 	show: {
@@ -75,6 +76,7 @@ let li = {
 
 function SideMenu() {
 	let [showMenu, setShowMenu] = useState(false);
+  let {setCurrent} = useAudio();
 	let links = [
     {
       title: 'Песни',
@@ -142,7 +144,9 @@ function SideMenu() {
             }}
             key={index}
           >
-            <NavLink to={item.href}>
+            <NavLink to={item.href}
+              onClick={() => setCurrent({index:null, id:null})}
+            >
               {item.title}
             </NavLink>
           </motion.li>

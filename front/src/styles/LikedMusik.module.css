@@ -1,0 +1,32 @@
+.container{
+    width: 100%;
+    height: calc(90vh - 20px);
+    display: flex;
+    padding-top: 25px;
+    justify-content: center;
+}
+
+.content{
+    width: 50%;
+    height: 100%;
+    max-width: 700px;
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+
+@media screen and (max-width:630px) {
+    .content{
+        padding-top: 50px;
+    }
+}
+
+
+@media screen and (max-width:600px) {
+    .content{
+        min-width: 95vw;
+        width: 95%;
+    }
+}

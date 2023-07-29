@@ -9,14 +9,10 @@ import { useNavigate } from 'react-router-dom';
 function HomePage() {
     let {user, singOut} = useAuth();
     let {musiks, setMusiks} = useAudio();
-    
+
     let navigate = useNavigate();
 
-    const getAllMusik = () => {
-        if(!musiks.length) fetchMusik();
-    }
-
-    const fetchMusik = async () => {
+    const getAllMusik = async () => {
         let res = await fetch('/audio/get_all',
             {
                 method: 'POST',

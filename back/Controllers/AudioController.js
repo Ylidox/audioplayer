@@ -8,8 +8,6 @@ class AudioController{
         let {name, author} = req.body;
         if(!name) name = '';
         if(!author) author = '';
-        // console.log(id, login)
-        // console.log(name, author)
         let filePath = `/audio/${login}/${file.name}`;
         await file.mv(`${__dirname}/../..${filePath}`, (err) => {
             if(err){
@@ -33,6 +31,11 @@ class AudioController{
     async getAllMusiks(req, res){
         let {id, login} = req.user;
         let musiks = await db.query('select * from musik where customer_id = $1', [id]);
+        res.status(200).json(musiks.rows);
+    }
+    async getLikedMusik(req, res){
+        let {id} = req.user;
+        let musiks = await db.query('select * from musik where customer_id = $1 and liked=$2', [id, true]);
         res.status(200).json(musiks.rows);
     }
     async changeMusik(req, res){

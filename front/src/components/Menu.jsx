@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Menu.module.css'
 import { NavLink } from 'react-router-dom';
 import {motion} from 'framer-motion';
+import { useAudio } from '../hooks/useAudio';
 
 function UnderLine(){
     return (
@@ -15,6 +16,7 @@ function UnderLine(){
 
 function Menu() {
     let [select, setSelect] = useState('/');
+    let {setCurrent} = useAudio();
     let setClass = (isActive, state) => {
         if(isActive) setSelect(state);
         return isActive ? styles.select_a : styles.a;
@@ -52,7 +54,11 @@ function Menu() {
                                 background:'var(--background)',
                             }}
                         >
-                            <NavLink to={item.href} className={({isActive}) => setClass(isActive, item.href)}>{item.title}</NavLink>
+                            <NavLink 
+                                to={item.href} 
+                                className={({isActive}) => setClass(isActive, item.href)}
+                                onClick={() => setCurrent({index:null, id:null})}
+                            >{item.title}</NavLink>
                             {select===item.href && <UnderLine/>}
 
                         </motion.div>

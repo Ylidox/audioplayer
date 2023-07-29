@@ -4,8 +4,7 @@ import {motion} from 'framer-motion';
 import { useAudio } from '../hooks/useAudio';
 
 function ListAudio({songs}) {
-  // let [play, setPlay] = useState(null)
-  let {current, setCurrent, next} = useAudio();
+  let {musiks, setMusiks, current, setCurrent, next} = useAudio();
 
   return (
     <motion.div style={{
@@ -19,11 +18,15 @@ function ListAudio({songs}) {
         <Audio 
           song={item} 
           key={item.id} 
-          play={current === index} 
+          play={current.id === item.id} 
           setPlay={() => {
-            setCurrent(index)
+            setCurrent({id:item.id, index})
           }}
           next={next}
+          onLike={(like) => {
+            musiks[index].liked = like;
+            setMusiks([...musiks]);
+          }}
         />
       )}
     </motion.div>

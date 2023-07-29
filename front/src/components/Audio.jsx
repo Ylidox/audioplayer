@@ -5,7 +5,7 @@ import {motion} from 'framer-motion'
 import ReactAudioPlayer from 'react-audio-player';
 import { AiFillHeart } from 'react-icons/ai';
 
-function Audio({song, play, setPlay, next}) {
+function Audio({song, play, setPlay, next, onLike}) {
     let {user} = useAuth();
     let audio = useRef(null);
 
@@ -30,7 +30,7 @@ function Audio({song, play, setPlay, next}) {
         e.stopPropagation();
         let liked = !like;
         setLike(!like);
-
+        onLike(!like);
         let res = await fetch('/audio/like', {
             method: 'PUT',
             headers: {

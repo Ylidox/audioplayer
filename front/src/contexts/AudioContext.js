@@ -4,11 +4,16 @@ export const AudioContext = createContext(null);
 
 export const AudioProvaider = ({children}) => {
     let [musiks, setMusiks] = useState([]);
-    let [current, setCurrent] = useState(null);
+    let [current, setCurrent] = useState({
+        index: null,
+        id: null
+    });
 
     let next = () => {
-        current++;
-        setCurrent(current % musiks.length)
+        current.index++;
+        current.index %= musiks.length;
+        current.id = musiks[current.index].id;
+        setCurrent({...current});
     }
 
     let mix = () => {
