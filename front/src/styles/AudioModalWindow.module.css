@@ -1,0 +1,48 @@
+.back{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* background: rgba(255, 255, 255, 0.5); */
+}
+.container{
+    position: absolute;
+    z-index: 3;
+    background: white;
+    top: -55px;
+    left: -175px;
+    border: 1px solid var(--light);
+    color: var(--light);
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.delete{
+    color: rgb(235, 81, 81);
+}
+
+.list{
+    padding: 0;
+    list-style: none;
+    width: 200px;
+}
+
+.li, .delete{
+    padding: 0 10px;
+    width: 90%;
+    border: 1px solid rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.li:hover{
+    border-bottom: 1px solid var(--light);
+}
+
+.delete:hover{
+    border-bottom: 1px solid rgb(235, 81, 81);
+}

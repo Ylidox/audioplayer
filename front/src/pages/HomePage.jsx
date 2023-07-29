@@ -25,7 +25,8 @@ function HomePage() {
         let ans = await res.json();
         if(res.status == 404) singOut(navigate('/login'));
         // console.log(ans)
-        if(ans.length !== musiks.length) setMusiks(ans);
+        //if(ans.length !== musiks.length) 
+        setMusiks(ans);
     }
 
     useEffect(() => {

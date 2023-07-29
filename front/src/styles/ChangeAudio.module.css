@@ -1,0 +1,81 @@
+.hidden{
+    display: none;
+}
+
+.container{
+    width: 100%;
+    height: calc(90vh - 20px);
+    display: flex;
+    padding-top: 25px;
+    justify-content: center;
+    position: relative;
+}
+
+.content{
+    width: 50%;
+    height: 100%;
+    max-width: 600px;
+    min-width: 500px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* justify-content: space-between; */
+}
+
+.add_button{
+    height: 10vh;
+    font-size: 20px;
+    /* background: rgba(0, 0, 0, 0); */
+    color: rgb(150, 150, 150);
+    text-align: start;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.submit_button{
+    height: 10vh;
+    font-size: 20px;
+    background: var(--gradient);
+    border: 0;
+    border-radius: 20px;
+}
+
+.input{
+    height: 10vh;
+    font-size: 20px;
+    color: white;
+    outline: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+}
+.background_input{
+    height: 10vh;
+    width: 100%;
+    background: var(--gradient);
+    position: absolute;
+    z-index: -1;
+    scale: 1.05;
+    border-radius: 20px;
+}
+
+.content>div{
+    margin-bottom: 20px;
+}
+.content>button, .content>input{
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width:630px) {
+    .content{
+        margin-top: 50px;
+    }
+}
+
+
+@media screen and (max-width:520px) {
+    .content{
+        min-width: 95vw;
+        width: 95%;
+    }
+}

@@ -41,7 +41,8 @@ class AudioController{
     async changeMusik(req, res){
         let {id, login} = req.user;
         let musik_id = req.params.id;
-        let {name, author} = req.query;
+
+        let {name, author} = req.body;
         if(name){
             await db.query('update musik set name = $1 where id = $2 and customer_id = $3', [name, musik_id, id]);
         }

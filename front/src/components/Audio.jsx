@@ -1,13 +1,16 @@
 import {useState, useRef, useEffect} from 'react';
 import styles from '../styles/Audio.module.css';
 import { useAuth } from '../hooks/useAuth';
-import {motion} from 'framer-motion'
+import {motion, AnimatePresence} from 'framer-motion'
 import ReactAudioPlayer from 'react-audio-player';
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart, AiOutlineMore} from 'react-icons/ai';
+import { AudioModalWindow } from './AudioModalWindow';
 
 function Audio({song, play, setPlay, next, onLike}) {
     let {user} = useAuth();
     let audio = useRef(null);
+
+    let [modal, setModal] = useState(false); 
 
     let [duration, setDuration] = useState(0);
     let [currentTime, setCurrentTime] = useState(0);
@@ -143,11 +146,25 @@ function Audio({song, play, setPlay, next, onLike}) {
                         <AiFillHeart 
                             className={styles.like_on}
                         /> :
-                        <AiFillHeart 
+                        <AiOutlineHeart
                             className={styles.like_off}
                             // onClick={toggle_like}
                         />
                     }
+                </div>
+                <div className={styles.more_container}
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setModal(!modal)
+                    }}
+                >
+                    {modal ? 
+                        <AiOutlineMore className={styles.more_on}/> :
+                        <AiOutlineMore className={styles.more_off}/>
+                    }
+                    <AnimatePresence>
+                        {modal ? <AudioModalWindow song={song}/> : null}
+                    </AnimatePresence>
                 </div>
                 <ReactAudioPlayer 
                     src={`file/${user.login}/${song.path}`} 
