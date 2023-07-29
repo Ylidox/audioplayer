@@ -4,7 +4,7 @@ import './App.css';
 import LoginPage from './pages/LoginPage';
 import { AuthProvider } from './contexts/AuthContext';
 import { AudioProvaider } from './contexts/AudioContext';
-import Registration from './pages/Registration';
+import {Registration} from './pages/Registration';
 import HomePage from './pages/HomePage';
 import AddAudio from './pages/AddAudio';
 import { LikedMusik } from './pages/LikedMusik';

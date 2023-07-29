@@ -74,27 +74,10 @@ let li = {
 	}
 }
 
-function SideMenu() {
+function SideMenu({links}) {
 	let [showMenu, setShowMenu] = useState(false);
   let {setCurrent} = useAudio();
-	let links = [
-    {
-      title: 'Песни',
-      href: '/'
-    },
-    {
-      title: 'Слушать',
-      href: '/listen'
-    },
-    {
-      title: 'Избранное',
-      href: '/liked'
-    },
-    {
-      title: 'Плейлисты',
-      href: '/lists'
-    },
-	]
+	
 	return (
 			
     <motion.div 

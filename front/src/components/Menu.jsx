@@ -14,31 +14,13 @@ function UnderLine(){
     );
 }
 
-function Menu() {
+function Menu({links}) {
     let [select, setSelect] = useState('/');
     let {setCurrent} = useAudio();
     let setClass = (isActive, state) => {
         if(isActive) setSelect(state);
         return isActive ? styles.select_a : styles.a;
     }
-    let links = [
-        {
-          title: 'Песни',
-          href: '/'
-        },
-        {
-          title: 'Слушать',
-          href: '/listen'
-        },
-        {
-          title: 'Избранное',
-          href: '/liked'
-        },
-        {
-          title: 'Плейлисты',
-          href: '/lists'
-        },
-    ]
     return (
         <div className={styles.container}>
             <motion.div className={styles.content} >

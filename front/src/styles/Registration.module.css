@@ -1,0 +1,61 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    min-width: 300px;
+    max-width: 600px;
+    height: 40vh;
+    position: relative;
+}
+.content>input{
+    border: 0;
+    background: rgba(0, 0, 0, 0);
+    height: 8vh;
+    font-size: 5vh;
+    color: white;
+    outline: 0;
+}
+
+.content>button{
+    height: 8vh;
+    font-size: 5vh;
+    border: 0;
+    color: lightgrey;
+    background: var(--gradient);
+    border-radius: 10px;
+    /* scale: 1.2; */
+}
+
+.select_input{
+    position: absolute;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    background: var(--gradient);
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.login{
+    width: 170px;
+    text-align: center;
+    position: absolute;
+    left: calc(50% - 85px);
+    bottom: 10px;
+    font-size: 18px;
+    color: white;
+}
+
+@media (max-width:300px) {
+    .content{
+        min-width: 100%;
+    }
+}

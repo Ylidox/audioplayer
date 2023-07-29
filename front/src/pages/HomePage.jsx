@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
     let {user, singOut} = useAuth();
-    let {musiks, setMusiks} = useAudio();
+    let {setCurrent, musiks, setMusiks} = useAudio();
 
     let navigate = useNavigate();
 
@@ -31,6 +31,10 @@ function HomePage() {
 
     useEffect(() => {
         getAllMusik();
+        setCurrent({
+            index: null,
+            id: null,
+        });
     }, []);
 
     return (
