@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Audio from './Audio';
-import {motion} from 'framer-motion';
+import {motion, AnimateSharedLayout} from 'framer-motion';
 import { useAudio } from '../hooks/useAudio';
 
 function ListAudio({songs}) {
-  let {musiks, setMusiks, current, setCurrent, next} = useAudio();
+  let {musiks, setMusiks, current, setCurrent, next, run, setRun} = useAudio();
 
   return (
     <motion.div style={{
@@ -18,9 +18,10 @@ function ListAudio({songs}) {
         <Audio 
           song={item} 
           key={item.id} 
-          play={current.id === item.id} 
+          play={(current.id === item.id) && run} 
           setPlay={() => {
-            setCurrent({id:item.id, index})
+            setCurrent({id:item.id, index});
+            setRun(true);
           }}
           next={next}
           onLike={(like) => {

@@ -4,6 +4,7 @@ export const AudioContext = createContext(null);
 
 export const AudioProvaider = ({children}) => {
     let [musiks, setMusiks] = useState([]);
+    let [run, setRun] = useState(false);
     let [current, setCurrent] = useState({
         index: null,
         id: null
@@ -27,7 +28,7 @@ export const AudioProvaider = ({children}) => {
     }
 
     return (
-        <AudioContext.Provider value={{current, setCurrent, musiks, setMusiks, next, mix}}>
+        <AudioContext.Provider value={{run, setRun, current, setCurrent, musiks, setMusiks, next, mix}}>
             {children}
         </AudioContext.Provider>
     );

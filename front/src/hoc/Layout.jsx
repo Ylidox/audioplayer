@@ -3,6 +3,7 @@ import MainMenu from '../components/MainMenu';
 import { Outlet } from 'react-router-dom';
 import RequireAuth from './RequireAuth';
 import LoginButton from '../components/LoginButton';
+import { SideControlUnit } from '../components/SideControlUnit';
 function Layout() {
     return (
         <RequireAuth>
@@ -10,6 +11,7 @@ function Layout() {
             <LoginButton/>
             <main>
                 <Outlet/>
+                <SideControlUnit/>
             </main>
         </RequireAuth>
     );

@@ -16,7 +16,7 @@ function UnderLine(){
 
 function Menu({links}) {
     let [select, setSelect] = useState('/');
-    let {setCurrent} = useAudio();
+    let {setCurrent, setRun} = useAudio();
     let setClass = (isActive, state) => {
         if(isActive) setSelect(state);
         return isActive ? styles.select_a : styles.a;
@@ -39,7 +39,10 @@ function Menu({links}) {
                             <NavLink 
                                 to={item.href} 
                                 className={({isActive}) => setClass(isActive, item.href)}
-                                onClick={() => setCurrent({index:null, id:null})}
+                                onClick={() => {
+                                    setCurrent({index:null, id:null});
+                                    setRun(false);
+                                }}
                             >{item.title}</NavLink>
                             {select===item.href && <UnderLine/>}
 

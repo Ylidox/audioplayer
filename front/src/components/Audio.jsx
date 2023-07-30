@@ -5,9 +5,13 @@ import {motion, AnimatePresence} from 'framer-motion'
 import ReactAudioPlayer from 'react-audio-player';
 import { AiFillHeart, AiOutlineHeart, AiOutlineMore} from 'react-icons/ai';
 import { AudioModalWindow } from './AudioModalWindow';
+import { useAudio } from '../hooks/useAudio';
+import { useVolume } from '../hooks/useVolume';
 
 function Audio({song, play, setPlay, next, onLike}) {
     let {user} = useAuth();
+    let {run, setRun} = useAudio();
+    let {volume} = useVolume();
     let audio = useRef(null);
 
     let [modal, setModal] = useState(false); 
@@ -25,7 +29,10 @@ function Audio({song, play, setPlay, next, onLike}) {
             ref.play();
             setPlay();
         }
-        else ref.pause();
+        else {
+            ref.pause();
+            setRun(false);
+        }
         e.stopPropagation();
     }
 
@@ -110,11 +117,17 @@ function Audio({song, play, setPlay, next, onLike}) {
                 border: '1px solid var(--light)',
             }}
             onClick={toggle}
+            layoutId={song.id}
         >
+            <AnimatePresence initial={false}>
             {play && <motion.div
                 layoutId='back'
                 className={styles.background}
+                exit={{
+                    scale: 0,
+                }}
             ></motion.div>}
+            </AnimatePresence>
             <div className={styles.content}>
                 <div className={styles.data}>
                     <div className={styles.name}>{song.name}</div>
@@ -174,6 +187,7 @@ function Audio({song, play, setPlay, next, onLike}) {
                     onListen={updateTime}
                     onLoadedMetadata={updateTime}
                     onEnded={next}
+                    volume={volume}
                 />
             </div>
         </motion.div>
