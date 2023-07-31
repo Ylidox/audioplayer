@@ -40,7 +40,7 @@ function Menu({links}) {
                                 to={item.href} 
                                 className={({isActive}) => setClass(isActive, item.href)}
                                 onClick={() => {
-                                    setCurrent({index:null, id:null});
+                                    // setCurrent({index:null, id:null});
                                     setRun(false);
                                 }}
                             >{item.title}</NavLink>

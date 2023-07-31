@@ -128,7 +128,7 @@ function SideMenu({links}) {
             key={index}
           >
             <NavLink to={item.href}
-              onClick={() => setCurrent({index:null, id:null})}
+              // onClick={() => setCurrent({index:null, id:null})}
             >
               {item.title}
             </NavLink>
