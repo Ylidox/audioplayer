@@ -8,9 +8,9 @@ import { AudioModalWindow } from './AudioModalWindow';
 import { useAudio } from '../hooks/useAudio';
 import { useVolume } from '../hooks/useVolume';
 
-function Audio({song, play, setPlay, next, onLike}) {
+function Audio({song, play, setPlay, next, onLike, setRun, current}) {
     let {user} = useAuth();
-    let {run, setRun} = useAudio();
+    // let {run, setRun} = useAudio();
     let {volume} = useVolume();
     let audio = useRef(null);
 
@@ -97,14 +97,20 @@ function Audio({song, play, setPlay, next, onLike}) {
         let ref = audio.current.audioEl.current;
         if(!play){
             ref.pause();
-            ref.currentTime = 0;
-            setCurrentTime(0)
-            setProgres(0)
         }else{
             ref.play();
             setPlay();
         }
     }, [play]);
+
+    useEffect(() => {
+        if(current.id != song.id){
+            let ref = audio.current.audioEl.current;
+            ref.currentTime = 0;
+            setCurrentTime(0)
+            setProgres(0)
+        }
+    }, [current])
 
     return (
         <motion.div 
@@ -120,7 +126,7 @@ function Audio({song, play, setPlay, next, onLike}) {
             layoutId={song.id}
         >
             <AnimatePresence initial={false}>
-            {play && <motion.div
+            {current.id == song.id && <motion.div
                 layoutId='back'
                 className={styles.background}
                 exit={{

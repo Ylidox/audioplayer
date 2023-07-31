@@ -14,7 +14,7 @@ function ListAudio({songs}) {
     }}
       layout
     >
-      {songs.length && songs.map((item, index) => 
+      {!!songs.length ? songs.map((item, index) => 
         <Audio 
           song={item} 
           key={item.id} 
@@ -28,8 +28,15 @@ function ListAudio({songs}) {
             musiks[index].liked = like;
             setMusiks([...musiks]);
           }}
+          current={current}
+          setRun={setRun}
         />
-      )}
+      ) :
+      <div style={{
+        color: 'var(--light_background)',
+        textAlign: 'center',
+        // margin: '0 auto',
+      }}>Нет композиций</div>}
     </motion.div>
   );
 }
