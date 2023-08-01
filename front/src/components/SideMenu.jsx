@@ -76,7 +76,7 @@ let li = {
 
 function SideMenu({links}) {
 	let [showMenu, setShowMenu] = useState(false);
-  let {setCurrent} = useAudio();
+  let {setRun} = useAudio();
 	
 	return (
 			
@@ -128,7 +128,7 @@ function SideMenu({links}) {
             key={index}
           >
             <NavLink to={item.href}
-              // onClick={() => setCurrent({index:null, id:null})}
+              onClick={() => setRun(false)}
             >
               {item.title}
             </NavLink>

@@ -7,7 +7,7 @@ import ListAudio from '../components/ListAudio';
 import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-    let {user, singOut} = useAuth();
+    let {user, signOut} = useAuth();
     let {setCurrent, musiks, setMusiks} = useAudio();
 
     let navigate = useNavigate();
@@ -23,7 +23,7 @@ function HomePage() {
             }
         );
         let ans = await res.json();
-        if(res.status == 404) singOut(navigate('/login'));
+        if(res.status == 404) signOut(() => navigate('/login'));
         // console.log(ans)
         //if(ans.length !== musiks.length) 
         setMusiks(ans);
@@ -31,10 +31,10 @@ function HomePage() {
 
     useEffect(() => {
         getAllMusik();
-        setCurrent({
-            index: null,
-            id: null,
-        });
+        // setCurrent({
+        //     index: null,
+        //     id: null,
+        // });
     }, []);
 
     return (

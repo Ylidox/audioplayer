@@ -1,0 +1,231 @@
+.container{
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content{
+  height: 60vh;
+  min-height: 200px;
+  max-height: 400px;
+  width: 50%;
+  max-width: 400px;
+  min-width: 300px;
+  background: white;
+  border-radius: 40px;
+  /* border: 5px solid var(--gradient); */
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  /*align-items: center; */
+}
+
+.block{
+  position:absolute;
+  top: 15px;
+  height: calc(100% - 95px - 40px);
+  width: calc(100% - 30px);
+  border-radius: 30px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sound{
+  color: white;
+  font-size: 40px;
+}
+
+.control_container{
+  width: calc(100% - 30px);
+  height: 95px;
+  background: var(--gradient);
+  border-radius: 30px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  position: absolute;
+  bottom: 15px;
+}
+
+.control{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  height: 40px;
+  bottom: 5px;
+}
+
+.musik{
+  position: absolute;
+  top: 21px;
+  left: 8px;
+  font-size: 25px;
+  width: calc(100% - 20px);
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-between;
+}
+.musik>p{
+  margin: 0;
+  color: var(--background);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.name{
+  max-width: 65%;
+}
+.author{
+  max-width: 40%;
+  /* width: 40%; */
+  color: var(--light_background);
+  font-size: 20px;
+  vertical-align:middle;
+}
+
+.icon_container{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.icon, .play, .left, .right, .shuffle, .reload{
+  color: var(--background);
+  font-size: 35px;
+  position: absolute;
+}
+
+.shuffle{
+  left: 7px;
+}
+
+.play{
+  left: 10px;
+}
+
+.left{
+  left: 7px;
+}
+
+.right{
+  right: 7px;
+}
+
+.reload{
+  font-size: 30px;
+}
+
+.play:hover, .left:hover, .right:hover, .shuffle:hover, .reload:hover{
+  /* background: white; */
+  color: white;
+}
+
+.time{
+  color: var(--background);
+}
+
+.progres_container{
+  left: calc(6px);
+  width: calc(100% - 12px);
+  height: 15px;
+  border-radius: 10px;
+  /* background: var(--light_background); */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 5px;
+}
+
+.progres_area{
+  display: flex;
+  align-items: center;
+  width: calc(100% - 90px);
+  height: 7px;
+}
+
+.progres{
+  appearance: none;
+  -webkit-appearance: none;
+  height: 100%;
+  width: 100%;
+  background: rgb(177, 176, 176);
+  border-radius: 10px;
+  margin: 0 auto;
+/* стили вашего ползунка */
+}
+.progres::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  box-sizing: content-box;
+  /* стили вашего бегунка */
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+}
+.progres::-moz-range-thumb {
+  /* снова стили вашего бегунка */
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+
+}
+.progres::-ms-thumb { /* должен следовать после -webkit- */
+  /* снова стили вашего бегунка */
+  /* могут потребоваться разные отступы */
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+  border-radius: 10px;
+}
+.progres::-webkit-slider-runnable-track {
+/* стили вашей дорожки*/
+  background: var(--progres-track);
+  height: 100%;
+  border-radius: 10px;
+}
+.progres::-moz-range-track {
+/* снова стили вашей дорожки */
+  background: var(--progres-track);
+height: 100%;
+  border-radius: 10px;
+}
+.progres::-ms-track { /* должен следовать после -webkit- */
+  border-color: transparent;
+  color: transparent;
+  /* снова стили вашей дорожки */
+
+  background: var(--progres-track);
+  height: 100%;
+  border-radius: 10px;
+}
+
+.progres::-ms-fill-lower {
+  background-color: var(--progres-fill);		
+  height: 100%;
+  border-radius: 10px;
+}
+.progres::-moz-range-progress {
+  background-color: var(--progres-fill);	
+  height: 100%;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 630px){
+  .container{
+    height: 100vh;
+  }
+  .content{
+    width: 50%;
+    max-width: 100%;
+    min-width: 300px;
+  }
+}

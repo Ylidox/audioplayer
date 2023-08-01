@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage';
 import AddAudio from './pages/AddAudio';
 import { LikedMusik } from './pages/LikedMusik';
 import { ChangeAudio } from './pages/ChangeAudio';
+import { AudioPlayer } from './pages/AudioPlayer';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Route path='/' element={<Layout/>}>
               <Route index element={<HomePage/>}/>
               <Route path='liked' element={<LikedMusik/>}/>
-              <Route path='listen' element={<div>Слушать</div>}/>
+              <Route path='listen' element={<AudioPlayer/>}/>
               <Route path='lists' element={<div>Плейлисты</div>}/>
               <Route path='add_audio' element={<AddAudio/>}/>
               <Route path='change_audio' element={<ChangeAudio/>}/>

@@ -2,15 +2,17 @@ import { useState } from 'react';
 import Audio from './Audio';
 import {motion, AnimateSharedLayout} from 'framer-motion';
 import { useAudio } from '../hooks/useAudio';
+import { useAuth } from '../hooks/useAuth';
 
 function ListAudio({songs}) {
-  let {musiks, setMusiks, current, setCurrent, next, run, setRun} = useAudio();
-
+  let {musiks, setMusiks, current, setCurrent, next, run, setRun, setAudioEl} = useAudio();
+  let {user} = useAuth();
   return (
     <motion.div style={{
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
+      position: 'relative',
     }}
       layout
     >
@@ -20,7 +22,7 @@ function ListAudio({songs}) {
           key={item.id} 
           play={(current.id === item.id) && run} 
           setPlay={() => {
-            setCurrent({id:item.id, index});
+            setCurrent({id:item.id, index, path:item.path});
             setRun(true);
           }}
           next={next}
@@ -30,6 +32,7 @@ function ListAudio({songs}) {
           }}
           current={current}
           setRun={setRun}
+          setAudioEl={setAudioEl}
         />
       ) :
       <div style={{

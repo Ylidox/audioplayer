@@ -41,7 +41,7 @@ function Menu({links}) {
                                 className={({isActive}) => setClass(isActive, item.href)}
                                 onClick={() => {
                                     // setCurrent({index:null, id:null});
-                                    setRun(false);
+                                    if(item.href !== '/listen') setRun(false);
                                 }}
                             >{item.title}</NavLink>
                             {select===item.href && <UnderLine/>}

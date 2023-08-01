@@ -7,7 +7,7 @@ import { AiFillHeart, AiOutlineHeart, AiOutlineMore} from 'react-icons/ai';
 import { AudioModalWindow } from './AudioModalWindow';
 import { useVolume } from '../hooks/useVolume';
 
-function Audio({song, play, setPlay, next, onLike, setRun, current}) {
+function Audio({song, play, setPlay, next, onLike, setRun, current, setAudioEl}) {
   let {user} = useAuth();
   let {volume} = useVolume();
   let audio = useRef(null);
@@ -102,11 +102,13 @@ function Audio({song, play, setPlay, next, onLike, setRun, current}) {
   }, [play]);
 
   useEffect(() => {
+    let ref = audio.current.audioEl.current;
     if(current.id != song.id){
-      let ref = audio.current.audioEl.current;
       ref.currentTime = 0;
       setCurrentTime(0)
       setProgres(0)
+    }else{
+      setAudioEl(ref);
     }
   }, [current])
 
@@ -124,16 +126,13 @@ function Audio({song, play, setPlay, next, onLike, setRun, current}) {
     >
       <div className={styles.content}>
       <AnimatePresence initial={false}>
-      {current.id == song.id && <motion.div
+        {current.id == song.id && <motion.div
           layoutId='back'
           className={styles.background}
-          animate={{
-            width: 'inherit',
-          }}
           exit={{
             scale: 0,
           }}
-      ></motion.div>}
+        ></motion.div>}
       </AnimatePresence>
         <div className={styles.data}>
           <div className={styles.name}>{song.name}</div>
