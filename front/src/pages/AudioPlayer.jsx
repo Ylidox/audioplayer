@@ -12,7 +12,7 @@ import { useVolume } from '../hooks/useVolume';
 
 export const AudioPlayer = () => {
   let {user} = useAuth();
-  let {run, setRun, musiks, current, audioEl, setAudioEl, next} = useAudio();
+  let {run, setRun, musiks, current, audioEl, setAudioEl, next, previous, mix} = useAudio();
   let {volume} = useVolume();
 
   let [song, setSong] = useState({});
@@ -22,6 +22,7 @@ export const AudioPlayer = () => {
   let audio = useRef(null);
 
   let handleProgres = (e) => {
+    if(audio.current === null) return;
     e.preventDefault();
     e.stopPropagation();
 
@@ -34,12 +35,15 @@ export const AudioPlayer = () => {
   }
 
   let updateTime = () => {
+    if(audio.current === null) return;
+
     let ref = audio.current.audioEl.current;
     setDuration(ref.duration);
     setCurrentTime(ref.currentTime);
   }
 
   useEffect(() => {
+    if(audio.current === null) return;
     let song = musiks[current.index];
     setSong(song);
     setDuration(audioEl.duration);
@@ -50,6 +54,7 @@ export const AudioPlayer = () => {
   }, []);
 
   useEffect(() => {
+    if(audio.current === null) return;
     setSong(musiks[current.index])
     let ref = audio.current.audioEl.current;
     if(run){
@@ -69,6 +74,8 @@ export const AudioPlayer = () => {
   // }, [audioEl]);
 
   useEffect(() => {
+    if(audio.current === null) return;
+
     let ref = audio.current.audioEl.current;
     if(run){
       ref.play();
@@ -123,10 +130,18 @@ export const AudioPlayer = () => {
               <p className={styles.author}>{song.author}</p>
             </div>
             <div className={styles.control}>
-              <div className={styles.icon_container}>
+              <div className={styles.icon_container}
+                onClick={mix}
+              >
                 <PiShuffle className={styles.shuffle}/>              
               </div>
-              <div className={styles.icon_container}>
+              <div className={styles.icon_container}
+                onClick={() => {
+                  previous();
+                  let ref = audio.current.audioEl.current;
+                  ref.currentTime = 0;
+                }}
+              >
                 <BiSolidChevronsLeft className={styles.left}/>
               </div>
               <div className={styles.icon_container}
@@ -146,7 +161,13 @@ export const AudioPlayer = () => {
               >
                 <BiSolidChevronsRight className={styles.right}/>
               </div>
-              <div className={styles.icon_container}>
+              <div className={styles.icon_container}
+                onClick={() => {
+                  let ref = audio.current.audioEl.current;
+                  ref.currentTime = 0;
+                  updateTime();
+                }}
+              >
                 <IoReloadOutline className={styles.reload}/>
               </div>
             </div>

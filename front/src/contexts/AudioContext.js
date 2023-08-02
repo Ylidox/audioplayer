@@ -39,7 +39,20 @@ export const AudioProvaider = ({children}) => {
     }
 
     return (
-        <AudioContext.Provider value={{run, setRun, current, setCurrent, musiks, setMusiks, next, previous, mix, audioEl, setAudioEl}}>
+        <AudioContext.Provider 
+            value={{
+                run, 
+                setRun, 
+                current, 
+                setCurrent, 
+                musiks, 
+                setMusiks, 
+                next, 
+                previous, 
+                mix, 
+                audioEl, 
+                setAudioEl
+            }}>
             {children}
         </AudioContext.Provider>
     );
