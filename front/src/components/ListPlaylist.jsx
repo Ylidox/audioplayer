@@ -9,7 +9,7 @@ export const ListPlaylist = ({list, currentList, setCurrentList, fetchPlaylist})
 
   return (
     <div className={styles.container}>
-      <div className={styles.content}>
+      <motion.div className={styles.content} layout>
         <motion.div 
           className={`${styles.card} ${styles.add}`}
           whileHover={{
@@ -24,21 +24,15 @@ export const ListPlaylist = ({list, currentList, setCurrentList, fetchPlaylist})
             <PlaylistModalWindow fetchPlaylist={fetchPlaylist}/>
           }
         </motion.div>
-        <motion.div
-          layout
-          style={{
-            display:'flex',
-          }}
-        >
         {list.map(item => 
           <Playlist
             playlist={item}
             currentList={currentList}
             setCurrentList={setCurrentList}
+            fetchPlaylist={fetchPlaylist}
           />
         )}
-        </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

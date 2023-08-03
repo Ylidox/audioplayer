@@ -38,6 +38,13 @@ class PlaylistController{
         }
         res.status(200).json(null);
     }
+    async getPlaylistById(req, res){
+        let {id} = req.user;
+        let {playlist_id} = req.params;
+        let playlist = await db.query('select * from playlist where customer_id=$1 and id = $2', [id, playlist_id]);
+
+        res.status(200).json(playlist.rows[0]);
+    }
     async getPlaylists(req, res){
         let {id} = req.user;
         let playlists = await db.query('select * from playlist where customer_id=$1', [id]);
