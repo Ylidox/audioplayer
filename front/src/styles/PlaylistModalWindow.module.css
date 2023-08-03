@@ -1,0 +1,45 @@
+.back{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: -100px;
+  left: -200px;
+  z-index: 1;
+  /* background: rgba(255, 255, 255, 0.5); */
+}
+
+.container{
+  position: absolute;
+  z-index: 3;
+  background: white;
+  top: 15px;
+  left: 15px;
+  border: 1px solid var(--light);
+  color: var(--light);
+  font-size: 16px;
+  border-radius: 10px;
+
+  padding: 10px;
+}
+
+.input{
+  padding: 5px;
+  border: 0;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border: 2px solid white;
+}
+
+.input:focus{
+  outline: 0;
+  border: 2px solid var(--light);
+  border-radius: 5px;
+}
+
+.button{
+  padding: 5px;
+  font-size: 18px;
+  color: var(--light_background);
+  border: 1px solid var(--light);
+  border-radius: 5px;
+}

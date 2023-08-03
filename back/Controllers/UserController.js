@@ -44,7 +44,7 @@ class UserController{
         await db.query(`insert into customer (login, password) values ($1,$2)`, [login, hashPassword]);
 
         let fs = require('fs');
-        fs.mkdir(`../audio/${login}`, err => {
+        fs.mkdir(`../file/${login}`, err => {
             if(err) console.log(err); // не удалось создать папку
             console.log('Папка успешно создана');
         });
@@ -66,7 +66,7 @@ class UserController{
 
             let oldLogin = await db.query('select * from customer where id = $1', [id]);
 
-            await fs.rename(`../audio/${oldLogin.rows[0].login}`, `../audio/${login}`, (err) => {
+            await fs.rename(`../file/${oldLogin.rows[0].login}`, `../file/${login}`, (err) => {
                 if (err) console.error(err);
                 else console.log('Папка успешно переименована');
             });
@@ -79,7 +79,7 @@ class UserController{
         let {id, login} = req.user;
 
         let fs = require('fs');
-        fs.rmdir(`../audio/${login}`, err => {
+        fs.rmdir(`../file/${login}`, err => {
             if(err) console.log(err); // не удалось удалить папку
             console.log('Папка успешно удалена');
         });

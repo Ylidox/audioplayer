@@ -8,7 +8,7 @@ class AudioController{
         let {name, author} = req.body;
         if(!name) name = '';
         if(!author) author = '';
-        let filePath = `/audio/${login}/${file.name}`;
+        let filePath = `/file/${login}/${file.name}`;
         await file.mv(`${__dirname}/../..${filePath}`, (err) => {
             if(err){
                 res.status(500).json({message:"Ошибка загрузки"});
@@ -61,7 +61,7 @@ class AudioController{
 
         const filePath = musik.rows[0].path;
 
-        fs.unlink(`${__dirname}/../..${filePath}`, (err) => {
+        fs.unlink(`${__dirname}/../../file/${login}/${filePath}`, (err) => {
             if (err) {
                 console.error(err);
                 return;

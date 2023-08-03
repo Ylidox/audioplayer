@@ -35,7 +35,15 @@ export const AudioProvaider = ({children}) => {
             out.push(musiks[index]);
             musiks.splice(index, 1);
         }
-        setMusiks(out)
+        setMusiks(out);
+       
+        for(let i = 0; i < out.length; i++){
+            if(out[i].id == current.id){
+                current.index = i;
+                setCurrent({...current});
+                break;
+            }
+        }
     }
 
     return (

@@ -38,7 +38,7 @@ function ListAudio({songs}) {
       <div style={{
         color: 'var(--light_background)',
         textAlign: 'center',
-        // margin: '0 auto',
+        marginTop: '5px',
       }}>Нет композиций</div>}
     </motion.div>
   );

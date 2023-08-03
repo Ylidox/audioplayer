@@ -1,6 +1,10 @@
 .container{
   height: 90vh;
-  width: 100%;
+  width: 50%;
+  max-width: 400px;
+  min-width: 300px;
+  margin: 0 auto;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,9 +14,9 @@
   height: 60vh;
   min-height: 200px;
   max-height: 400px;
-  width: 50%;
-  max-width: 400px;
-  min-width: 300px;
+  width: 100%;
+  /* max-width: 400px;
+  min-width: 300px; */
   background: white;
   border-radius: 40px;
   /* border: 5px solid var(--gradient); */
