@@ -47,6 +47,7 @@ function AddAudio() {
         e.preventDefault();
         setFile(e.dataTransfer.files[0])
         setName(e.dataTransfer.files[0].name);
+        e.stopPropagation();
     }
 
     let changeFileHandler = (event) => {

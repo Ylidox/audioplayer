@@ -9,7 +9,7 @@ export const ListPlaylist = ({list, currentList, setCurrentList, fetchPlaylist})
 
   return (
     <div className={styles.container}>
-      <motion.div className={styles.content} layout>
+      <motion.div className={styles.content} layout={'list'}>
         <motion.div 
           className={`${styles.card} ${styles.add}`}
           whileHover={{
