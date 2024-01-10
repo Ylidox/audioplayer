@@ -48,7 +48,7 @@ export const PlaylistsPage = () => {
   }, []);
 
   useEffect(() => {
-    getMusiks();
+    if(currentList.id !== null) getMusiks();
   }, [currentList]);
 
 
