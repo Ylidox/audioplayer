@@ -7,7 +7,7 @@ let playlistRouter = require('./Routers/playlistRouter');
 
 let fileUpload = require('express-fileupload');
 
-const PORT = 3001;
+const PORT = 3003;
 
 app.use(fileUpload({
     createParentPath:true

@@ -24,10 +24,14 @@ export const SideControlUnit = () => {
     setVolume(+e.target.value);
   }
 
+  let getClassClickListener = () => {
+    return`${styles.click_listener} ${show ? styles.click_listener_show : styles.click_listener_hidden}`;
+  }
+
   return (
     <>
       <div 
-        className={styles.click_listener}
+        className={getClassClickListener()}
         onClick={(e) => {
           e.preventDefault()
           setShow(false)

@@ -4,8 +4,16 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    /* z-index: -1; */
     background: rgba(255, 255, 255, 0);
+}
+
+.click_listener_show{
+    z-index: 1;
+}
+
+.click_listener_hidden{
+    z-index: -1;
 }
 
 .container{
