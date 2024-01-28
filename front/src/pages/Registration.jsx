@@ -14,13 +14,13 @@ let selected = {
         opacity: 1,
         top: '0.5vh',
         outline: '0px',
-        scale: 1.3,
+        scale: 1.1,
     },
     bottom: {
         opacity: 1,
         top: '16.3vh',
         outline: '0px',
-        scale: 1.3,
+        scale: 1.1,
     },
 }
 
@@ -54,7 +54,12 @@ export const Registration = () => {
                         className={styles.select_input}
                         variants={selected}
                         animate={selectInput}
-                        transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                        transition={{ 
+							type: "spring", 
+							stiffness: 200,
+							damping: 15, 
+							duration: 0.2,
+						}}
                     ></motion.div>
                     <motion.input 
                         type="text" 
@@ -73,12 +78,12 @@ export const Registration = () => {
                     <motion.button 
                         onClick={submit}
                         whileHover={{
-                            scale: 1.2,
-                        }}
-                        whileTap={{
-                            scale: 0.9,
-                        }}
-                        transition={{ type: "spring", stiffness: 500, damping: 15 }}
+							scale: 1.03,
+						}}
+						whileTap={{
+							scale: 0.99,
+						}}
+                        transition={{ type: "spring", stiffness: 500, damping: 10 }}
                     >
                         Отправить
                     </motion.button>

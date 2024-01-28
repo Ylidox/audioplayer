@@ -49,7 +49,12 @@ function LoginPage() {
 						className={styles.select_input}
 						variants={selected}
 						animate={selectInput}
-						transition={{ type: "spring", stiffness: 1000, damping: 20 }}
+						transition={{ 
+							type: "spring", 
+							stiffness: 200,
+							damping: 15, 
+							duration: 0.2,
+						}}
 					></motion.div>
 					<motion.input 
 						type="text" 
@@ -57,18 +62,18 @@ function LoginPage() {
 						value={login}
 						placeholder='Login:'
 						onClick={() => setSelectInput('top')}
-						/>
+					/>
 					<motion.input 
 						type="password" 
 						onChange={(e) => setPassword(e.target.value)}
 						value={password}
 						placeholder='Password:'
 						onClick={() => setSelectInput('bottom')}
-						/>
+					/>
 					<motion.button 
 						onClick={submit}
 						whileHover={{
-							scale: 1.01,
+							scale: 1.03,
 						}}
 						whileTap={{
 							scale: 0.99,
