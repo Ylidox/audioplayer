@@ -2,9 +2,9 @@
   --background: rgb(37, 37, 37);
   --light_background: rgb(78, 77, 77);
   --gradient1: linear-gradient(120deg, rgb(255, 0, 255), rgb(155, 0, 155));
-  --gradient: linear-gradient(170deg, rgb(1, 213, 85), rgb(29, 114, 56));
-  --dark: rgb(29, 114, 56);
-  --light: rgb(1, 213, 85);
+  --gradient: linear-gradient(170deg, #01d555, #1d7238);
+  --dark: #1d7238;
+  --light: #01d555;
   --progres-fill: white;
   --progres-track: rgb(82, 82, 82);
   /* --like-on: rgb(253, 3, 120); */
