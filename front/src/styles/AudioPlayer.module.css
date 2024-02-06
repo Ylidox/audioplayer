@@ -213,12 +213,12 @@ height: 100%;
 }
 
 .progres::-ms-fill-lower {
-  background-color-color: var(--progres-fill);		
+  background-color: var(--progres-fill);		
   height: 100%;
   border-radius: 10px;
 }
 .progres::-moz-range-progress {
-  background-color-color: var(--progres-fill);	
+  background-color: var(--progres-fill);	
   height: 100%;
   border-radius: 10px;
 }

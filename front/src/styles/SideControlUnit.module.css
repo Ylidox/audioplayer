@@ -102,12 +102,12 @@
 }
 
 .input::-ms-fill-lower {
-	background-color-color: var(--light);		
+	background-color: var(--light);		
 	height: 100%;
     border-radius: 30px;
 }
 .input::-moz-range-progress {
-	background-color-color: var(--light);	
+	background-color: var(--light);	
 	height: 100%;
 }
 
