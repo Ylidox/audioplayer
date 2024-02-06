@@ -97,7 +97,7 @@
 	-webkit-appearance: none;
 	height: 5px;
     width: 100%;
-    background: rgb(177, 176, 176);
+    background-color: rgb(177, 176, 176);
     border-radius: 10px;
 	/* стили вашего ползунка */
 }
@@ -105,31 +105,31 @@
 	-webkit-appearance: none;
 	box-sizing: content-box;
 	/* стили вашего бегунка */
-    background: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
     border: 0;
 }
 .progres::-moz-range-thumb {
 	/* снова стили вашего бегунка */
-    background: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
     border: 0;
 
 }
 .progres::-ms-thumb { /* должен следовать после -webkit- */
 	/* снова стили вашего бегунка */
 	/* могут потребоваться разные отступы */
-    background: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
     border: 0;
     border-radius: 10px;
 }
 .progres::-webkit-slider-runnable-track {
 	/* стили вашей дорожки*/
-    background: var(--progres-track);
+    background-color: var(--progres-track);
 	height: 100%;
     border-radius: 10px;
 }
 .progres::-moz-range-track {
 	/* снова стили вашей дорожки */
-    background: var(--progres-track);
+    background-color: var(--progres-track);
 	height: 100%;
     border-radius: 10px;
 }
@@ -138,26 +138,26 @@
 	color: transparent;
 	/* снова стили вашей дорожки */
 
-    background: var(--progres-track);
+    background-color: var(--progres-track);
 	height: 100%;
     border-radius: 10px;
 }
 
 .progres::-ms-fill-lower {
-	background-color: var(--progres-fill);		
+	background-color-color: var(--progres-fill);		
 	height: 100%;
     border-radius: 10px;
 }
 .progres::-moz-range-progress {
-	background-color: var(--progres-fill);	
+	background-color-color: var(--progres-fill);	
 	height: 100%;
     border-radius: 10px;
 }
 
-.background{
+.background-color{
     height: 60px;
     border-radius: 10px;
-    background: var(--gradient);
+    background-color: var(--gradient);
     position: absolute;
     z-index: -1;
 
@@ -167,7 +167,7 @@
 }
 
 @media screen and (max-width:630px) {
-    .background{
+    .background-color{
         min-width: 95vw;
         max-width: 95vw;
         /*width: 95%; */

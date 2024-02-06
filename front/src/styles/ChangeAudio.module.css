@@ -25,7 +25,7 @@
 .add_button{
     height: 10vh;
     font-size: 20px;
-    /* background: rgba(0, 0, 0, 0); */
+    /* background-color: rgba(0, 0, 0, 0); */
     color: rgb(150, 150, 150);
     text-align: start;
     border: 0;
@@ -36,7 +36,7 @@
 .submit_button{
     height: 10vh;
     font-size: 20px;
-    background: var(--gradient);
+    background-color: var(--gradient);
     border: 0;
     border-radius: 20px;
 }
@@ -47,12 +47,12 @@
     color: white;
     outline: 0;
     border: 0;
-    background: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
-.background_input{
+.background-color_input{
     height: 10vh;
     width: 100%;
-    background: var(--gradient);
+    background-color: var(--gradient);
     position: absolute;
     z-index: -1;
     scale: 1.05;

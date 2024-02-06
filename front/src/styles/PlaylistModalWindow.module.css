@@ -5,13 +5,13 @@
   top: -100px;
   left: -100px;
   z-index: 1;
-  /* background: rgba(255, 255, 255, 0.5); */
+  /* background-color: rgba(255, 255, 255, 0.5); */
 }
 
 .container{
   position: absolute;
   z-index: 3;
-  background: white;
+  background-color: white;
   top: 15px;
   left: 15px;
   border: 1px solid var(--light);
@@ -39,7 +39,7 @@
 .button{
   padding: 5px;
   font-size: 18px;
-  color: var(--light_background);
+  color: var(--light_background-color);
   border: 1px solid var(--light);
   border-radius: 5px;
 }
